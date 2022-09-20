@@ -9,24 +9,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>{{beer.name}}</td>
-            <td>{{beer.type}}</td>
-            <td>{{beer.price}}</td>
-            <td>{{beer.stock}}</td>
-            <td><img [src]="beer.image" [alt]="beer.image"></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>IPA</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>Cream Stout</td>
-            <td></td>
-            <td></td>
+        <tr *ngFor="let beers of beer" [ngClass]="{'clearence': beers.clearance}"> <!-- puedo poner , y + clases -->
+            <td><img [src]="beers.image" [alt]="beers.image"></td>
+            <td>{{beers.name | uppercase}}</td>
+            <td>{{beers.type}}</td>
+            <td>{{beers.price | currency}}</td>
+            <td><span class="badge text-bg-warning" *ngIf="beers.stock==0">SIN STOCK</span></td>
         </tr>
     </tbody>
 </table>
