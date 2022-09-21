@@ -6,7 +6,7 @@ import { Beer } from './Beer'
   styleUrls: ['./beer-list.component.scss']
 })
 export class BeerListComponent implements OnInit {
-  beer: Beer [] = [
+  beers: Beer [] = [
     {
       name: "Biter Call Saul",
       type: "IPA",
@@ -14,6 +14,7 @@ export class BeerListComponent implements OnInit {
       stock: 5,
       image: "assets/porter.jpg",
       clearance: false,
+      quantity: 0,
     },
     {
       name: "Red Red Wine",
@@ -22,6 +23,7 @@ export class BeerListComponent implements OnInit {
       stock: 3,
       image: "assets/porter.jpg",
       clearance: true,
+      quantity: 0,
     },
     {
       name: "Yellow Submarine",
@@ -30,6 +32,7 @@ export class BeerListComponent implements OnInit {
       stock: 0,
       image: "assets/porter.jpg",
       clearance: false,
+      quantity: 0,
     },
     {
       name: "Session IPA",
@@ -38,11 +41,24 @@ export class BeerListComponent implements OnInit {
       stock: 2,
       image: "assets/porter.jpg",
       clearance: false,
-    },
+      quantity:0,
+    },   
   ] 
   constructor() { }
 
   ngOnInit(): void {
+  }
+  upQuantity(beer: Beer): void {
+    if(beer.quantity < beer.stock)
+    beer.quantity++;
+  }
+  downQuantity(beer: Beer): void {
+    if(beer.quantity > 0)
+    beer.quantity--;
+  }
+  
+  changeQuantity(event, beer: Beer): void {
+    console.log(event.target)
   }
 
 }
