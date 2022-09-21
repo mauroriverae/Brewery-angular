@@ -57,8 +57,8 @@ export class BeerListComponent implements OnInit {
     beer.quantity--;
   }
   
-  changeQuantity(event, beer: Beer): void {
-    console.log(event.target)
+  changeQuantity( event: { key: any; }, beer: Beer): void {
+    console.log(event.key);
   }
 
 }

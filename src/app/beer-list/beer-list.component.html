@@ -21,7 +21,7 @@
                 <button class="btn btn-primary btn-sm" (click)="downQuantity(beer)"  >-</button>
                 <input type="text"
                  [(ngModel)]="beer.quantity"
-                  (keyup)="changeQuantity($event , beer)">
+                    (keyup)="changeQuantity($event, beer)">
                 <button class="btn btn-primary btn-sm" (click)="upQuantity(beer)">+</button>
                 {{beer.quantity}}
             </td>
