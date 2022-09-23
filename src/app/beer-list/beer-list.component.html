@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table text-center">
     <thead>
         <tr>
             <th>Imagen</th>
@@ -18,12 +18,18 @@
             <td>{{beer.price | currency}}</td>
             <td><span class="badge text-bg-warning" *ngIf="beer.stock==0">SIN STOCK</span></td>
             <td>
-                <button class="btn btn-primary btn-sm" (click)="downQuantity(beer)"  >-</button>
-                <input type="text"
-                 [(ngModel)]="beer.quantity"
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-primary btn-sm" (click)="downQuantity(beer)"  >-</button>
+                    </div>
+                    <input type="text" class="text-center"
+                    [(ngModel)]="beer.quantity"
                     (keyup)="changeQuantity($event, beer)">
-                <button class="btn btn-primary btn-sm" (click)="upQuantity(beer)">+</button>
-                {{beer.quantity}}
+                    <div class="input-group-append">
+                        <button class="btn btn-primary btn-sm" (click)="upQuantity(beer)">+</button>
+                        {{beer.quantity}}
+                    </div>
+                </div>
             </td>
         </tr>
     </tbody>
