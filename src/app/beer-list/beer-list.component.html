@@ -18,7 +18,8 @@
             <td>{{beer.price | currency}}</td>
             <td><span class="badge text-bg-warning" *ngIf="beer.stock==0">SIN STOCK</span></td>
             <td>
-                <app-input-integer [(quantity)]="beer.quantity" [max]="beer.stock" *ngIf="beer.stock"></app-input-integer>
+                <app-input-integer [(quantity)]="beer.quantity" [max]="beer.stock" *ngIf="beer.stock" (maxReached)="maxReached($event)"></app-input-integer>
+                cant: {{beer.quantity}}
             </td>
         </tr>
     </tbody>

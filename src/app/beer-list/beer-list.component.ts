@@ -48,4 +48,8 @@ export class BeerListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  maxReached(m: string){
+    alert(m);
+  }
 }
