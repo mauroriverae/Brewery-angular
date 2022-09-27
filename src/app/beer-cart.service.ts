@@ -12,11 +12,13 @@ export class BeerCartService {
   constructor() { }
   
   addToCart(beer: Beer) {
-    let item : Beer = this.cartList.find( (v1) => v1.name == beer.name);
+    let item: Beer = this.cartList.find((v1)=> v1.name == beer.name);
     if(!item) {
-      this.cartList.push(beer);
-    } 
-    console.log(this.cartList.length);
+      this.cartList.push({... beer});
+    } else {
+      item.quantity += beer.quantity;
+    }
+    console.log(this.cartList);
   }
 
 //minuto 39:45

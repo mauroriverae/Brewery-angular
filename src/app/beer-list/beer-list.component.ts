@@ -55,6 +55,8 @@ export class BeerListComponent implements OnInit {
 
   addToCart(beer: any):void {
     this.cart.addToCart(beer);
+    beer.stock -= beer.quantity;
+    beer.quantity = 0;
   }
 
 
