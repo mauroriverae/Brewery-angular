@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Beer } from './beer-list/Beer';
 
+
 //maneja la logica del carrtio 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class BeerCartService {
   constructor() { }
   
   addToCart(beer: Beer) {
-    let item: Beer = this.cartList.find((v1)=> v1.name == beer.name);
+    let item = this.cartList.find((v1)=> v1.name == beer.name);
     if(!item) {
       this.cartList.push({... beer});
     } else {
@@ -20,6 +21,4 @@ export class BeerCartService {
     }
     console.log(this.cartList);
   }
-
-//minuto 39:45
 }

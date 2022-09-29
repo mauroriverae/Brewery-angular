@@ -46,14 +46,13 @@ export class BeerListComponent implements OnInit {
     },   
   ] 
 
-  constructor(private cart: BeerCartService) { 
-  }
+  constructor(private cart: BeerCartService) {  }
 
   ngOnInit(): void {
   }
 
 
-  addToCart(beer: any):void {
+  addToCart(beer: Beer): void {
     this.cart.addToCart(beer);
     beer.stock -= beer.quantity;
     beer.quantity = 0;
