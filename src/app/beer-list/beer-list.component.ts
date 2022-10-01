@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BeerCartService } from '../beer-cart.service';
+import { BeerDataService } from '../beer-data.service';
 import { Beer } from './Beer'
 @Component({
   selector: 'app-beer-list',
@@ -46,7 +47,10 @@ export class BeerListComponent implements OnInit {
     },   
   ] 
 
-  constructor(private cart: BeerCartService) {  }
+  constructor(
+    private cart: BeerCartService,
+    private beersDataService: BeerDataService) { 
+  }
 
   ngOnInit(): void {
   }
